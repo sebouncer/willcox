@@ -4,6 +4,7 @@ import nz.co.willcox.reservation.service.AbstractService;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +35,19 @@ public class Rsvp {
             rsvp.setIsVaxed(item.get(IS_VAXED).s());
         }
         return rsvp;
+    }
+
+    public static Map<String, AttributeValue> to(Rsvp rsvp) {
+        final Map<String, AttributeValue> rsvpMap = new HashMap<>();
+        if (rsvp != null) {
+            rsvpMap.put(FIRST_NAME, AttributeValue.builder().s(rsvp.getFirstName()).build());
+            rsvpMap.put(LAST_NAME, AttributeValue.builder().s(rsvp.getLastName()).build());
+            rsvpMap.put(EMAIL_ADDRESS, AttributeValue.builder().s(rsvp.getEmailAddress()).build());
+            rsvpMap.put(PHONE_NUMBER, AttributeValue.builder().s(rsvp.getPhoneNumber()).build());
+            rsvpMap.put(NUMBER_OF_RSVP_PEOPLE, AttributeValue.builder().s(rsvp.getNumberOfRsvpPeople()).build());
+            rsvpMap.put(IS_VAXED, AttributeValue.builder().s(rsvp.getIsVaxed()).build());
+        }
+        return rsvpMap;
     }
 
     public String getNumberOfRsvpPeople() {

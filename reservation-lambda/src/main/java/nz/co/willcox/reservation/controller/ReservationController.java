@@ -5,17 +5,31 @@ import com.amazonaws.services.lambda.runtime.events.APIGatewayV2HTTPResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import nz.co.willcox.reservation.model.EventDetails;
+import nz.co.willcox.reservation.model.Rsvp;
 import nz.co.willcox.reservation.service.ReservationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.Map;
 
 @ApplicationScoped
 public class ReservationController {
 
     private static final String ID = "id";
+    private static final String API_KEY_VALUE = "Engagement";
+    private static final String PASSWORD_VALUE = "Spedding";
+    private static final String APIKEY_HEADER_KEY = "apikey"; // Headers must be lowercase
+    private static final String PASSWORD_HEADER_KEY = "password";
+
+    private final Logger log = LoggerFactory.getLogger(getClass());
 
     private final ReservationService reservationService;
     private final ObjectMapper objectMapper;
+
+//    mvn clean package -DskipTests && aws lambda update-function-code --function-name reservation --zip-file fileb://reservation-lambda/target/function.zip --profile personal-sebouncer
+//    aws lambda update-function-code --function-name reservation --zip-file fileb://reservation-lambda/target/function.zip --profile personal-sebouncer
+//    aws lambda get-function --function-name reservation --profile personal-sebouncer
 
     public ReservationController(
             ReservationService reservationService,
@@ -25,12 +39,25 @@ public class ReservationController {
         this.objectMapper = objectMapper;
     }
 
-    public APIGatewayV2HTTPResponse post(APIGatewayV2HTTPEvent input) {
-        reservationService.addPersonToEvent();
+    public APIGatewayV2HTTPResponse post(APIGatewayV2HTTPEvent input) throws JsonProcessingException {
+        final APIGatewayV2HTTPResponse securityCheckResponse = securityCheck(input);
+        if (securityCheckResponse != null) {
+            return securityCheckResponse;
+        }
+
+        final Rsvp rsvp = objectMapper.readValue(input.getBody(), Rsvp.class);
+        final String eventId = input.getPathParameters().get(ID);
+
+        reservationService.addPersonToEvent(eventId, rsvp);
         return new APIGatewayV2HTTPResponse();
     }
 
     public APIGatewayV2HTTPResponse get(APIGatewayV2HTTPEvent input) throws JsonProcessingException {
+        final APIGatewayV2HTTPResponse securityCheckResponse = securityCheck(input);
+        if (securityCheckResponse != null) {
+            return securityCheckResponse;
+        }
+
         final String eventId = input.getPathParameters().get(ID);
         if (eventId == null) {
             throw new RuntimeException("Event id of null does not exists");
@@ -40,5 +67,24 @@ public class ReservationController {
         final APIGatewayV2HTTPResponse apiGatewayV2HTTPResponse = new APIGatewayV2HTTPResponse();
         apiGatewayV2HTTPResponse.setBody(objectMapper.writeValueAsString(event));
         return apiGatewayV2HTTPResponse;
+    }
+
+    private APIGatewayV2HTTPResponse securityCheck(APIGatewayV2HTTPEvent input) {
+        final Map<String, String> headers = input.getHeaders();
+        final String apiKey = headers.get(APIKEY_HEADER_KEY);
+        final String password = headers.get(PASSWORD_HEADER_KEY);
+        if (!API_KEY_VALUE.equals(apiKey) || !PASSWORD_VALUE.equals(password)) {
+            logHeaders(headers);
+            final APIGatewayV2HTTPResponse apiGatewayV2HTTPResponse = new APIGatewayV2HTTPResponse();
+            apiGatewayV2HTTPResponse.setStatusCode(401);
+            return apiGatewayV2HTTPResponse;
+        }
+        return null;
+    }
+
+    private void logHeaders(Map<String, String> headers) {
+        for (Map.Entry entry : headers.entrySet()) {
+            log.info(entry.getKey() + " = :" + entry.getValue() + ":");
+        }
     }
 }

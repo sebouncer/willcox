@@ -37,11 +37,37 @@ public class ReservationLambda implements RequestHandler<APIGatewayV2HTTPEvent, 
             } else if (GET.equals(method)) {
                 apiGatewayV2HTTPResponse = reservationController.get(input);
             }
-            apiGatewayV2HTTPResponse.setStatusCode(200);
+            if (apiGatewayV2HTTPResponse.getStatusCode() == 0) {
+                apiGatewayV2HTTPResponse.setStatusCode(200);
+            }
         } catch (Exception e) {
+            log.info(">>>>>>>> Exception = :" + e.getMessage() + ":");
             e.printStackTrace();
             apiGatewayV2HTTPResponse.setStatusCode(500);
         }
         return apiGatewayV2HTTPResponse;
     }
 }
+
+/*
+
+{
+ "id": "1",
+ "startTime": "4:00pm",
+ "location": "Our House",
+ "endTime": "4:00pm",
+ "rsvps": [
+  {
+   "firstName": "Andrew",
+   "lastName": "LastName",
+   "emailAddress": "someEmailAddress@gmail.com",
+   "phoneNumber": "021 123 456",
+   "numberOfRsvpPeople": "2",
+   "isVaxed": "true"
+  }
+ ],
+ "details": "Come and join us"
+}
+
+
+ */
