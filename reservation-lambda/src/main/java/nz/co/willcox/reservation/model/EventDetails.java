@@ -4,6 +4,7 @@ import io.quarkus.runtime.annotations.RegisterForReflection;
 import nz.co.willcox.reservation.service.AbstractService;
 import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,8 +21,16 @@ public class EventDetails {
     public static EventDetails from(Map<String, AttributeValue> item) {
         EventDetails eventDetails = new EventDetails();
         if (item != null && !item.isEmpty()) {
+            eventDetails.setId(item.get(AbstractService.ID_COL).s());
             eventDetails.setLocation(item.get(AbstractService.LOCATION_COL).s());
             eventDetails.setStartTime(item.get(AbstractService.START_TIME_COL).s());
+            eventDetails.setEndTime(item.get(AbstractService.END_TIME_COL).s());
+            eventDetails.setDetails(item.get(AbstractService.DETAILS_COL).s());
+            eventDetails.setRsvps(new ArrayList<>());
+            final List<AttributeValue> l = item.get(AbstractService.RSVPS_COL).l();
+            for (AttributeValue att : l) {
+                eventDetails.getRsvps().add(Rsvp.from(att.m()));
+            }
         }
         return eventDetails;
     }
