@@ -6,6 +6,10 @@
 
     <groupId>nz.co.willcox</groupId>
     <artifactId>willcox</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>reservation-lambda</module>
+    </modules>
 
 </project>
