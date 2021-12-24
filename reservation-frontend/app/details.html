@@ -34,6 +34,9 @@
             background-color: black;
             height: 100%;
             width: 100%;
+            overflow-y: scroll;
+            padding-top: 40px;
+            padding-bottom: 40px;
         }
         .page {
             height: 100%;
@@ -41,7 +44,6 @@
             background-color: black;
         }
         .mainTitle {
-            padding-top: 40px;
             text-align: center;
             font-size: 100px;
             font-weight: 600;
@@ -86,6 +88,11 @@
         }
     </script>
     <link rel="stylesheet" href="font/stylesheet.css" type="text/css" charset="utf-8" />
+
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/buttons.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+
     <style>
         .divTable{
             display: table;
@@ -102,21 +109,28 @@
             padding: 3px 10px;
         }
         .detail-title {
-            text-align: right;
-            font-size: 80px;
+            text-align: left;
+            padding-left: 50px;
+            font-size: 70px;
             /*font-family: "Apple Chancery";*/
             color: white;
-            width: 50%;
         }
         .detail-value {
             text-align: left;
-            font-size: 80px;
+            padding-left: 50px;
+            font-size: 70px;
             /*font-family: "Apple Chancery";*/
             color: white;
-            width: 50%;
+        }
+        .details-font {
+            font-size: 50px !important;
         }
         body {
             font-family: 'apple_chancerychancery';
+        }
+        .navigate-btn {
+            font-weight: bold !important;
+            font-size: 25px;
         }
     </style>
 </head>
@@ -128,33 +142,38 @@
                 <div class="whiteBorder">
                     <div class="lightBlueBorder">
                         <div class="content">
-                            <div class="mainTitle">Party Details</div>
+                            <div class="mainTitle">Join us for our Engagement Party</div>
                             <div class="divTable">
                                 <div class="divTableBody">
                                     <div class="divTableRow">
                                         <div class="divTableCell detail-title">Location:</div>
-                                        <div class="divTableCell detail-value" id="locationValue"></div>
+                                        <div class="divTableCell detail-value" id="locationValue">Some Location</div>
                                     </div>
                                     <div class="divTableRow">
-                                        <div class="divTableCell detail-title">Start Time:</div>
-                                        <div class="divTableCell detail-value" id="startTimeValue"></div>
+                                        <div class="divTableCell detail-title">Date:</div>
+                                        <div class="divTableCell detail-value" id="dateValue">Saturday 22nd December</div>
                                     </div>
                                     <div class="divTableRow">
-                                        <div class="divTableCell">&nbsp;</div>
-                                        <div class="divTableCell">&nbsp;</div>
+                                        <div class="divTableCell detail-title">Start&nbsp;From:</div>
+                                        <div class="divTableCell detail-value" id="startTimeValue">4:00pm</div>
                                     </div>
+                                    <br/>
+                                    <br/>
                                     <div class="divTableRow">
-                                        <div class="divTableCell">&nbsp;</div>
-                                        <div class="divTableCell">&nbsp;</div>
-                                    </div>
-                                    <div class="divTableRow">
-                                        <div class="divTableCell">&nbsp;</div>
-                                        <div class="divTableCell">&nbsp;</div>
+                                        <div class="divTableCell detail-title details-font">Details:</div>
+                                        <div class="divTableCell detail-value details-font" id="detailsValue">Some details here and over there but what about over there</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="secondaryTitle">Details:</div>
-                            <div class="secondaryTitle" id="detailsValue"></div>
+                            <div style="text-align: center;padding-top: 40px">
+                                <a href="index.html">
+                                    <button type="button" class="navigate-btn btn btn-info btn-radius">Home</button>
+                                </a>
+                                &nbsp;&nbsp;
+                                <a href="rsvp.html">
+                                    <button type="button" class="navigate-btn btn btn-light btn-radius">RSVP</button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
