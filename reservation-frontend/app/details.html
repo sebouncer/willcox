@@ -1,0 +1,166 @@
+<html>
+<head>
+    <title>Spedding & Willcox</title>
+    <style>
+        .darkBlueBorder {
+            border-style: solid;
+            border-color: #2058ba;
+            border-width: 20px;
+            height: 100%;
+            width: 100%;
+        }
+        .blueBorder {
+            border-style: solid;
+            border-color: #0073ff;
+            border-width: 20px;
+            height: 100%;
+            width: 100%;
+        }
+        .lightBlueBorder {
+            border-style: solid;
+            border-color: #66b4ef;
+            border-width: 20px;
+            height: 100%;
+            width: 100%;
+        }
+        .whiteBorder {
+            border-style: solid;
+            border-color: black;
+            border-width: 20px;
+            height: 100%;
+            width: 100%;
+        }
+        .content {
+            background-color: black;
+            height: 100%;
+            width: 100%;
+        }
+        .page {
+            height: 100%;
+            width: 100%;
+            background-color: black;
+        }
+        .mainTitle {
+            padding-top: 40px;
+            text-align: center;
+            font-size: 100px;
+            font-weight: 600;
+            font-family: "Apple Chancery";
+            color: white;
+        }
+        .secondaryTitle {
+            padding-top: 40px;
+            text-align: center;
+            font-size: 80px;
+            font-family: "Apple Chancery";
+            color: white;
+        }
+        body {
+            background-color: black;
+        }
+        html { box-sizing: border-box; }
+        *, *:before, *:after { box-sizing: inherit; }
+    </style>
+
+    <script type="text/javascript">
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                console.log("readyState = " + this.readyState + " and status = " + this.status);
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                    // document.getElementById("demo").innerHTML = this.responseText;
+                    const responseJson = JSON.parse(this.responseText);
+                    document.getElementById("locationValue").innerText = responseJson.location;
+                    document.getElementById("startTimeValue").innerText = responseJson.startTime;
+                    document.getElementById("detailsValue").innerText = responseJson.details;
+                }
+            };
+            xhttp.open("GET", "https://api.willcox.co.nz/reservation/1", true);
+            xhttp.setRequestHeader("apikey", "Engagement");
+            xhttp.setRequestHeader("password", "Spedding");
+            xhttp.setRequestHeader("accept", "*/*");
+            xhttp.setRequestHeader("accept-language", "en-GB,en-US;q=0.9,en;q=0.8");
+
+            xhttp.send();
+        }
+    </script>
+    <link rel="stylesheet" href="font/stylesheet.css" type="text/css" charset="utf-8" />
+    <style>
+        .divTable{
+            display: table;
+            width: 100%;
+        }
+        .divTableRow {
+            display: table-row;
+        }
+        .divTableBody {
+            display: table-row-group;
+        }
+        .divTableCell {
+            display: table-cell;
+            padding: 3px 10px;
+        }
+        .detail-title {
+            text-align: right;
+            font-size: 80px;
+            /*font-family: "Apple Chancery";*/
+            color: white;
+            width: 50%;
+        }
+        .detail-value {
+            text-align: left;
+            font-size: 80px;
+            /*font-family: "Apple Chancery";*/
+            color: white;
+            width: 50%;
+        }
+        body {
+            font-family: 'apple_chancerychancery';
+        }
+    </style>
+</head>
+<body onload="loadDoc()">
+<div class="page">
+    <div class="darkBlueBorder">
+        <div class="whiteBorder">
+            <div class="blueBorder">
+                <div class="whiteBorder">
+                    <div class="lightBlueBorder">
+                        <div class="content">
+                            <div class="mainTitle">Party Details</div>
+                            <div class="divTable">
+                                <div class="divTableBody">
+                                    <div class="divTableRow">
+                                        <div class="divTableCell detail-title">Location:</div>
+                                        <div class="divTableCell detail-value" id="locationValue"></div>
+                                    </div>
+                                    <div class="divTableRow">
+                                        <div class="divTableCell detail-title">Start Time:</div>
+                                        <div class="divTableCell detail-value" id="startTimeValue"></div>
+                                    </div>
+                                    <div class="divTableRow">
+                                        <div class="divTableCell">&nbsp;</div>
+                                        <div class="divTableCell">&nbsp;</div>
+                                    </div>
+                                    <div class="divTableRow">
+                                        <div class="divTableCell">&nbsp;</div>
+                                        <div class="divTableCell">&nbsp;</div>
+                                    </div>
+                                    <div class="divTableRow">
+                                        <div class="divTableCell">&nbsp;</div>
+                                        <div class="divTableCell">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="secondaryTitle">Details:</div>
+                            <div class="secondaryTitle" id="detailsValue"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

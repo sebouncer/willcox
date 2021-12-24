@@ -27,10 +27,6 @@ public class ReservationController {
     private final ReservationService reservationService;
     private final ObjectMapper objectMapper;
 
-//    mvn clean package -DskipTests && aws lambda update-function-code --function-name reservation --zip-file fileb://reservation-lambda/target/function.zip --profile personal-sebouncer
-//    aws lambda update-function-code --function-name reservation --zip-file fileb://reservation-lambda/target/function.zip --profile personal-sebouncer
-//    aws lambda get-function --function-name reservation --profile personal-sebouncer
-
     public ReservationController(
             ReservationService reservationService,
             ObjectMapper objectMapper
