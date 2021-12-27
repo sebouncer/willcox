@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import nz.co.willcox.reservation.model.EventDetails;
 import nz.co.willcox.reservation.model.Rsvp;
+import nz.co.willcox.reservation.model.RsvpList;
 import nz.co.willcox.reservation.service.ReservationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +19,8 @@ public class ReservationController {
 
     private static final String ID = "id";
     private static final String API_KEY_VALUE = "Engagement";
-    private static final String PASSWORD_VALUE = "Spedding";
+    private static final String S_PASSWORD_VALUE = "Spedding";
+    private static final String W_PASSWORD_VALUE = "Willcox";
     private static final String APIKEY_HEADER_KEY = "apikey"; // Headers must be lowercase
     private static final String PASSWORD_HEADER_KEY = "password";
 
@@ -41,10 +43,24 @@ public class ReservationController {
             return securityCheckResponse;
         }
 
-        final Rsvp rsvp = objectMapper.readValue(input.getBody(), Rsvp.class);
+        final RsvpList rsvpList = objectMapper.readValue(input.getBody(), RsvpList.class);
         final String eventId = input.getPathParameters().get(ID);
 
-        reservationService.addPersonToEvent(eventId, rsvp);
+        if (rsvpList.size() == 0) {
+            final APIGatewayV2HTTPResponse apiGatewayV2HTTPResponse = new APIGatewayV2HTTPResponse();
+            apiGatewayV2HTTPResponse.setStatusCode(500);
+            apiGatewayV2HTTPResponse.setBody("No body that can be parsed");
+            return apiGatewayV2HTTPResponse;
+        }
+
+        if (eventId == null || eventId.isEmpty()) {
+            final APIGatewayV2HTTPResponse apiGatewayV2HTTPResponse = new APIGatewayV2HTTPResponse();
+            apiGatewayV2HTTPResponse.setStatusCode(500);
+            apiGatewayV2HTTPResponse.setBody("No event");
+            return apiGatewayV2HTTPResponse;
+        }
+
+        reservationService.addPeopleToEvent(eventId, rsvpList);
         return new APIGatewayV2HTTPResponse();
     }
 
@@ -69,7 +85,7 @@ public class ReservationController {
         final Map<String, String> headers = input.getHeaders();
         final String apiKey = headers.get(APIKEY_HEADER_KEY);
         final String password = headers.get(PASSWORD_HEADER_KEY);
-        if (!API_KEY_VALUE.equals(apiKey) || !PASSWORD_VALUE.equals(password)) {
+        if (!API_KEY_VALUE.equals(apiKey) || !(S_PASSWORD_VALUE.equals(password) || W_PASSWORD_VALUE.equals(password))) {
             logHeaders(headers);
             final APIGatewayV2HTTPResponse apiGatewayV2HTTPResponse = new APIGatewayV2HTTPResponse();
             apiGatewayV2HTTPResponse.setStatusCode(401);

@@ -58,40 +58,129 @@
     </style>
 
     <script type="text/javascript">
-        function loadDoc() {
-            var xhttp = new XMLHttpRequest();
+        // function loadDoc() {
+        //     var xhttp = new XMLHttpRequest();
+        //     xhttp.onreadystatechange = function() {
+        //         console.log("readyState = " + this.readyState + " and status = " + this.status);
+        //         if (this.readyState == 4 && this.status == 200) {
+        //             console.log(this.responseText);
+        //             const responseJson = JSON.parse(this.responseText);
+        //             document.getElementById("locationValue").innerText = responseJson.location;
+        //             document.getElementById("startTimeValue").innerText = responseJson.startTime;
+        //             document.getElementById("detailsValue").innerText = responseJson.details;
+        //         }
+        //     };
+        //     xhttp.open("GET", "https://api.willcox.co.nz/reservation/1", true);
+        //     xhttp.setRequestHeader("apikey", "Engagement");
+        //     xhttp.setRequestHeader("password", "Spedding");
+        //     xhttp.setRequestHeader("accept", "*/*");
+        //     xhttp.setRequestHeader("accept-language", "en-GB,en-US;q=0.9,en;q=0.8");
+        //
+        //     xhttp.send();
+        // }
+
+        function submitAttendees() {
+
+            let vaccinated = document.getElementById("vaccination").checked;
+            let contactEmailAddress = document.getElementById("contactEmailAddress").value;
+            let contactPhoneNumber = document.getElementById("contactPhoneNumber").value;
+
+            let rsvpNumberSelectionElement = document.getElementById("rsvp-number-selection");
+            let rsvpNumberSelectionValue = parseInt(rsvpNumberSelectionElement.value);
+
+            let allRsvpPeople = [];
+
+            for (let i = 0; i < rsvpNumberSelectionValue; i++) {
+                let fullName = document.getElementById("fullName" + (i+1)).value;
+                let areYouComing = document.getElementById("areYouComing" + (i+1));
+                let attending = areYouComing.options[areYouComing.selectedIndex].text;
+
+                let rsvpPerson = {};
+                rsvpPerson.fullName = encodeURIComponent(fullName);
+                rsvpPerson.attending = encodeURIComponent(attending);
+                rsvpPerson.emailAddress = encodeURIComponent(contactEmailAddress);
+                rsvpPerson.phoneNumber = encodeURIComponent(contactPhoneNumber);
+                rsvpPerson.vaccinated = encodeURIComponent(vaccinated);
+                allRsvpPeople.push(rsvpPerson);
+
+                console.log("fullName = :" + fullName +
+                    ": coming = :" + attending +
+                    ": contactEmailAddress = :" + contactEmailAddress +
+                    ": contactPhoneNumber = :" + contactPhoneNumber +
+                    ": and is vaccinated = :" + vaccinated + ":");
+            }
+
+            console.log("Send all the data")
+            console.log(JSON.stringify(allRsvpPeople));
+            submitAllAttendees(allRsvpPeople);
+        }
+
+        function submitAllAttendees(allRsvpPeople) {
+            let xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 console.log("readyState = " + this.readyState + " and status = " + this.status);
                 if (this.readyState == 4 && this.status == 200) {
                     console.log(this.responseText);
-                    const responseJson = JSON.parse(this.responseText);
-                    document.getElementById("locationValue").innerText = responseJson.location;
-                    document.getElementById("startTimeValue").innerText = responseJson.startTime;
-                    document.getElementById("detailsValue").innerText = responseJson.details;
+                    // const responseJson = JSON.parse(this.responseText);
+
                 }
             };
-            xhttp.open("GET", "https://api.willcox.co.nz/reservation/1", true);
+            xhttp.open("POST", "https://api.willcox.co.nz/reservation/1", true);
             xhttp.setRequestHeader("apikey", "Engagement");
             xhttp.setRequestHeader("password", "Spedding");
             xhttp.setRequestHeader("accept", "*/*");
             xhttp.setRequestHeader("accept-language", "en-GB,en-US;q=0.9,en;q=0.8");
 
-            xhttp.send();
+            xhttp.send(JSON.stringify(allRsvpPeople));
         }
 
-        function submitAttendees() {
-
-        }
+        // function submitAttendee(fullName, attending, contactEmailAddress, contactPhoneNumber, vaccinated) {
+        //     console.log("fullName = :" + fullName +
+        //         ": coming = :" + attending +
+        //         ": contactEmailAddress = :" + contactEmailAddress +
+        //         ": contactPhoneNumber = :" + contactPhoneNumber +
+        //         ": and is vaccinated = :" + vaccinated + ":");
+        //
+        //     let params = {};
+        //     params.fullName = encodeURIComponent(fullName);
+        //     params.attending = encodeURIComponent(attending);
+        //     params.emailAddress = encodeURIComponent(contactEmailAddress);
+        //     params.phoneNumber = encodeURIComponent(contactPhoneNumber);
+        //     params.vaccinated = encodeURIComponent(vaccinated);
+        //
+        //     var xhttp = new XMLHttpRequest();
+        //     xhttp.onreadystatechange = function() {
+        //         console.log("readyState = " + this.readyState + " and status = " + this.status);
+        //         if (this.readyState == 4 && this.status == 200) {
+        //             console.log(this.responseText);
+        //             const responseJson = JSON.parse(this.responseText);
+        //             document.getElementById("locationValue").innerText = responseJson.location;
+        //             document.getElementById("startTimeValue").innerText = responseJson.startTime;
+        //             document.getElementById("detailsValue").innerText = responseJson.details;
+        //         }
+        //     };
+        //     xhttp.open("POST", "https://api.willcox.co.nz/reservation/1", true);
+        //     xhttp.setRequestHeader("apikey", "Engagement");
+        //     xhttp.setRequestHeader("password", "Spedding");
+        //     xhttp.setRequestHeader("accept", "*/*");
+        //     xhttp.setRequestHeader("accept-language", "en-GB,en-US;q=0.9,en;q=0.8");
+        //
+        //     xhttp.send(JSON.stringify(params));
+        // }
 
         function loadRsvpPeople(selectObject) {
             let value = selectObject.value;
             let intValue = parseInt(value);
-            document.getElementById("rsvpPerson1").style.display = intValue < 1? "none" : "table-row";
-            document.getElementById("rsvpPerson2").style.display = intValue < 2? "none" : "table-row";
-            document.getElementById("rsvpPerson3").style.display = intValue < 3? "none" : "table-row";
-            document.getElementById("rsvpPerson4").style.display = intValue < 4? "none" : "table-row";
-            document.getElementById("rsvpPerson5").style.display = intValue < 5? "none" : "table-row";
-            document.getElementById("rsvpPerson6").style.display = intValue < 6? "none" : "table-row";
+            loadRsvpPerson(1, intValue);
+            loadRsvpPerson(2, intValue);
+            loadRsvpPerson(3, intValue);
+            loadRsvpPerson(4, intValue);
+            loadRsvpPerson(5, intValue);
+            loadRsvpPerson(6, intValue);
+        }
+
+        function loadRsvpPerson(rsvpPerson, intValue) {
+            document.getElementById("rsvpPerson" + rsvpPerson).style.display = intValue < rsvpPerson? "none" : "table-row";
         }
     </script>
     <link rel="stylesheet" href="font/stylesheet.css" type="text/css" charset="utf-8" />
@@ -179,7 +268,7 @@
                                     </div>
                                     <div class="divTableRow" id="rsvpPerson1" >
                                         <div class="divTableCell detail-value">
-                                            <select id="areYouComing1" onchange="getComboA(this)">
+                                            <select id="areYouComing1">
                                                 <option value="0" selected></option>
                                                 <option value="Yes">Yes</option>
                                                 <option value="No">No</option>
@@ -246,12 +335,22 @@
                                 </div>
                             </div>
                             <br />
+                            <div class="table-header-value">
+                                With the uncertainty of Covid running around, and the Government making changes at any time they like, please also include the best way to contact you in case we need to make any last minute changes.
+                            </div>
+                            <br />
+                            <div class="detail-title">
+                                <input placeholder="Email Address" id="contactEmailAddress" type="email" /></div>
+                            <br />
+                            <div class="detail-title">
+                                <input placeholder="Phone Number" id="contactPhoneNumber" type="number" /></div>
+                            <br />
                             <div class="detail-title">
                                 <input type="checkbox" id="vaccination" name="vaccination">
                                 Please tick this box to confirm all attendees are vaccinated
                             </div>
                             <div style="text-align: center;padding-top: 40px">
-                                <button type="button" class="navigate-btn btn btn-secondary btn-lg btn-radius" onclick="submitAttendees">Confirm Response</button>
+                                <button type="button" class="navigate-btn btn btn-secondary btn-lg btn-radius" onclick="submitAttendees()">Confirm Response</button>
                             </div>
                             <div style="text-align: center;padding-top: 40px">
                                 <a href="index.html">
