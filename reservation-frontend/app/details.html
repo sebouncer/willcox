@@ -2,47 +2,6 @@
 <head>
     <title>Spedding & Willcox</title>
     <style>
-        .darkBlueBorder {
-            border-style: solid;
-            border-color: #2058ba;
-            border-width: 20px;
-            height: 100%;
-            width: 100%;
-        }
-        .blueBorder {
-            border-style: solid;
-            border-color: #0073ff;
-            border-width: 20px;
-            height: 100%;
-            width: 100%;
-        }
-        .lightBlueBorder {
-            border-style: solid;
-            border-color: #66b4ef;
-            border-width: 20px;
-            height: 100%;
-            width: 100%;
-        }
-        .whiteBorder {
-            border-style: solid;
-            border-color: black;
-            border-width: 20px;
-            height: 100%;
-            width: 100%;
-        }
-        .content {
-            background-color: black;
-            height: 100%;
-            width: 100%;
-            overflow-y: scroll;
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
-        .page {
-            height: 100%;
-            width: 100%;
-            background-color: black;
-        }
         .mainTitle {
             text-align: center;
             font-size: 100px;
@@ -50,44 +9,32 @@
             font-family: "Apple Chancery";
             color: white;
         }
-        .secondaryTitle {
-            padding-top: 40px;
-            text-align: center;
-            font-size: 80px;
-            font-family: "Apple Chancery";
-            color: white;
-        }
-        body {
-            background-color: black;
-        }
-        html { box-sizing: border-box; }
-        *, *:before, *:after { box-sizing: inherit; }
     </style>
 
     <script type="text/javascript">
         function loadDoc() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                console.log("readyState = " + this.readyState + " and status = " + this.status);
-                if (this.readyState == 4 && this.status == 200) {
-                    console.log(this.responseText);
-                    // document.getElementById("demo").innerHTML = this.responseText;
-                    const responseJson = JSON.parse(this.responseText);
-                    document.getElementById("locationValue").innerText = responseJson.location;
-                    document.getElementById("startTimeValue").innerText = responseJson.startTime;
-                    document.getElementById("detailsValue").innerText = responseJson.details;
-                }
-            };
-            xhttp.open("GET", "https://api.willcox.co.nz/reservation/1", true);
-            xhttp.setRequestHeader("apikey", "Engagement");
-            xhttp.setRequestHeader("password", "Spedding");
-            xhttp.setRequestHeader("accept", "*/*");
-            xhttp.setRequestHeader("accept-language", "en-GB,en-US;q=0.9,en;q=0.8");
-
-            xhttp.send();
+            // var xhttp = new XMLHttpRequest();
+            // xhttp.onreadystatechange = function() {
+            //     console.log("readyState = " + this.readyState + " and status = " + this.status);
+            //     if (this.readyState == 4 && this.status == 200) {
+            //         console.log(this.responseText);
+            //         const responseJson = JSON.parse(this.responseText);
+            //         document.getElementById("locationValue").innerText = responseJson.location;
+            //         document.getElementById("startTimeValue").innerText = responseJson.startTime;
+            //         document.getElementById("detailsValue").innerText = responseJson.details;
+            //     }
+            // };
+            // xhttp.open("GET", "https://api.willcox.co.nz/reservation/1", true);
+            // xhttp.setRequestHeader("apikey", "Engagement");
+            // xhttp.setRequestHeader("password", "Spedding");
+            // xhttp.setRequestHeader("accept", "*/*");
+            // xhttp.setRequestHeader("accept-language", "en-GB,en-US;q=0.9,en;q=0.8");
+            //
+            // xhttp.send();
         }
     </script>
     <link rel="stylesheet" href="font/stylesheet.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="styles/border.css" type="text/css" charset="utf-8" />
 
     <link href="styles/bootstrap.min.css" rel="stylesheet">
     <link href="styles/buttons.css" rel="stylesheet">
@@ -112,14 +59,12 @@
             text-align: left;
             padding-left: 50px;
             font-size: 70px;
-            /*font-family: "Apple Chancery";*/
             color: white;
         }
         .detail-value {
             text-align: left;
             padding-left: 50px;
             font-size: 70px;
-            /*font-family: "Apple Chancery";*/
             color: white;
         }
         .details-font {
@@ -131,6 +76,10 @@
         .navigate-btn {
             font-weight: bold !important;
             font-size: 25px;
+        }
+        .normalText {
+            font-family: Times New Roman;
+            font-size: 40px;
         }
     </style>
 </head>
@@ -147,21 +96,21 @@
                                 <div class="divTableBody">
                                     <div class="divTableRow">
                                         <div class="divTableCell detail-title">Location:</div>
-                                        <div class="divTableCell detail-value" id="locationValue">Some Location</div>
+                                        <div class="divTableCell detail-value" id="locationValue">5B Lawry Street, Ellerslie, Auckland</div>
                                     </div>
                                     <div class="divTableRow">
                                         <div class="divTableCell detail-title">Date:</div>
-                                        <div class="divTableCell detail-value" id="dateValue">Saturday 22nd December</div>
+                                        <div class="divTableCell detail-value" id="dateValue">Saturday 22nd January</div>
                                     </div>
                                     <div class="divTableRow">
-                                        <div class="divTableCell detail-title">Start&nbsp;From:</div>
-                                        <div class="divTableCell detail-value" id="startTimeValue">4:00pm</div>
+                                        <div class="divTableCell detail-title">Time:</div>
+                                        <div class="divTableCell detail-value" id="startTimeValue">4:00pm till Late</div>
                                     </div>
                                     <br/>
                                     <br/>
                                     <div class="divTableRow">
                                         <div class="divTableCell detail-title details-font">Details:</div>
-                                        <div class="divTableCell detail-value details-font" id="detailsValue">Some details here and over there but what about over there</div>
+                                        <div class="divTableCell detail-value details-font normalText" id="detailsValue">A light dinner will be provided around 7pm.<br />Any questions, please contact Andrew & Stephanie at spedding.willcox@gmail.com</div>
                                     </div>
                                 </div>
                             </div>

@@ -12,35 +12,53 @@ public class Rsvp {
     private static final String EMAIL_ADDRESS = "emailAddress";
     private static final String PHONE_NUMBER = "phoneNumber";
     private static final String VACCINATED = "vaccinated";
+    private static final String CREATED_AT = "createdAt";
 
     private String fullName;
     private String attending;
     private String emailAddress;
     private String phoneNumber;
     private String vaccinated;
+    private String createdAt;
 
     public static Rsvp from(Map<String, AttributeValue> item) {
         final Rsvp rsvp = new Rsvp();
         if (item != null && !item.isEmpty()) {
-            rsvp.setFullName(item.get(FULL_NAME).s());
-            rsvp.setAttending(item.get(ATTENDING).s());
-            rsvp.setEmailAddress(item.get(EMAIL_ADDRESS).s());
-            rsvp.setPhoneNumber(item.get(PHONE_NUMBER).s());
-            rsvp.setVaccinated(item.get(VACCINATED).s());
+            rsvp.setFullName(getAttributeValue(item, FULL_NAME));
+            rsvp.setAttending(getAttributeValue(item, ATTENDING));
+            rsvp.setEmailAddress(getAttributeValue(item, EMAIL_ADDRESS));
+            rsvp.setPhoneNumber(getAttributeValue(item, PHONE_NUMBER));
+            rsvp.setVaccinated(getAttributeValue(item, VACCINATED));
+            rsvp.setCreatedAt(getAttributeValue(item, CREATED_AT));
         }
         return rsvp;
+    }
+
+    private static String getAttributeValue(Map<String, AttributeValue> item, String key) {
+        if (item.containsKey(key)) {
+            return item.get(key).s();
+        } else {
+            return null;
+        }
     }
 
     public static Map<String, AttributeValue> to(Rsvp rsvp) {
         final Map<String, AttributeValue> rsvpMap = new HashMap<>();
         if (rsvp != null) {
-            rsvpMap.put(FULL_NAME, AttributeValue.builder().s(rsvp.getFullName()).build());
-            rsvpMap.put(ATTENDING, AttributeValue.builder().s(rsvp.getAttending()).build());
-            rsvpMap.put(EMAIL_ADDRESS, AttributeValue.builder().s(rsvp.getEmailAddress()).build());
-            rsvpMap.put(PHONE_NUMBER, AttributeValue.builder().s(rsvp.getPhoneNumber()).build());
-            rsvpMap.put(VACCINATED, AttributeValue.builder().s(rsvp.getVaccinated()).build());
+            addNonEmptyValue(rsvpMap, FULL_NAME, rsvp.getFullName());
+            addNonEmptyValue(rsvpMap, ATTENDING, rsvp.getAttending());
+            addNonEmptyValue(rsvpMap, EMAIL_ADDRESS, rsvp.getEmailAddress());
+            addNonEmptyValue(rsvpMap, PHONE_NUMBER, rsvp.getPhoneNumber());
+            addNonEmptyValue(rsvpMap, VACCINATED, rsvp.getVaccinated());
+            addNonEmptyValue(rsvpMap, CREATED_AT, rsvp.getCreatedAt());
         }
         return rsvpMap;
+    }
+
+    private static void addNonEmptyValue(Map<String, AttributeValue> map, String column, String value) {
+        if (value != null && !value.isEmpty()) {
+            map.put(column, AttributeValue.builder().s(value).build());
+        }
     }
 
     public String getFullName() {
@@ -71,8 +89,8 @@ public class Rsvp {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String contactPhoneNumber) {
-        this.phoneNumber = contactPhoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getVaccinated() {
@@ -81,5 +99,13 @@ public class Rsvp {
 
     public void setVaccinated(String vaccinated) {
         this.vaccinated = vaccinated;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 }

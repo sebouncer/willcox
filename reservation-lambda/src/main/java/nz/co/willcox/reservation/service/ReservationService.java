@@ -12,12 +12,22 @@ import software.amazon.awssdk.services.dynamodb.model.PutItemResponse;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import java.text.SimpleDateFormat;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 @ApplicationScoped
 public class ReservationService extends AbstractService {
 
     private final Logger log = LoggerFactory.getLogger(getClass());
+
+    private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    private final DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @Inject
     DynamoDbClient dynamoDB;
@@ -25,7 +35,14 @@ public class ReservationService extends AbstractService {
     public ReservationService() {}
 
     public EventDetails getEvent(String eventId) {
-        return EventDetails.from(dynamoDB.getItem(getRequest(eventId)).item());
+        final EventDetails eventDetails = EventDetails.from(dynamoDB.getItem(getRequest(eventId)).item());
+        eventDetails.setRsvps(null);
+        return eventDetails;
+    }
+
+    private String getCurrentNZDateTime() {
+        final OffsetDateTime now = OffsetDateTime.now(ZoneId.of("Pacific/Auckland"));
+        return fmt.format(now);
     }
 
     public void addPeopleToEvent(
@@ -34,7 +51,10 @@ public class ReservationService extends AbstractService {
     ) {
         final EventDetails eventDetails = EventDetails.from(dynamoDB.getItem(getRequest(eventId)).item());
         final List<Rsvp> rsvps = eventDetails.getRsvps();
+        final String currentNZDateTime = getCurrentNZDateTime();
+
         for (Rsvp rsvp : rsvpInput) {
+            rsvp.setCreatedAt(currentNZDateTime);
             rsvps.add(rsvp);
         }
 

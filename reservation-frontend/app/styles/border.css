@@ -1,0 +1,46 @@
+.darkBlueBorder {
+    border-style: solid;
+    border-color: #2058ba;
+    border-width: 20px;
+    height: 100%;
+    width: 100%;
+}
+.blueBorder {
+    border-style: solid;
+    border-color: #0073ff;
+    border-width: 20px;
+    height: 100%;
+    width: 100%;
+}
+.lightBlueBorder {
+    border-style: solid;
+    border-color: #66b4ef;
+    border-width: 20px;
+    height: 100%;
+    width: 100%;
+}
+.whiteBorder {
+    border-style: solid;
+    border-color: black;
+    border-width: 20px;
+    height: 100%;
+    width: 100%;
+}
+.content {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.page {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+body {
+    background-color: black;
+}
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }

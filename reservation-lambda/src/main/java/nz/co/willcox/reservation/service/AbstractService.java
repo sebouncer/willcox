@@ -32,17 +32,31 @@ public class AbstractService {
 
     protected PutItemRequest putRequest(EventDetails eventDetails) {
         Map<String, AttributeValue> item = new HashMap<>();
-        item.put(ID_COL, AttributeValue.builder().s(eventDetails.getId()).build());
-        item.put(LOCATION_COL, AttributeValue.builder().s(eventDetails.getLocation()).build());
-        item.put(START_TIME_COL, AttributeValue.builder().s(eventDetails.getStartTime()).build());
-        item.put(END_TIME_COL, AttributeValue.builder().s(eventDetails.getEndTime()).build());
-        item.put(DETAILS_COL, AttributeValue.builder().s(eventDetails.getDetails()).build());
-        item.put(RSVPS_COL, AttributeValue.builder().l(createRsvpAttributeList(eventDetails.getRsvps())).build());
+        addNonEmptyValue(item, ID_COL, eventDetails.getId());
+        addNonEmptyValue(item, LOCATION_COL, eventDetails.getLocation());
+        addNonEmptyValue(item, START_TIME_COL, eventDetails.getStartTime());
+        addNonEmptyValue(item, END_TIME_COL, eventDetails.getEndTime());
+        addNonEmptyValue(item, DETAILS_COL, eventDetails.getDetails());
+        addNonEmptyList(item, RSVPS_COL, eventDetails.getRsvps());
 
         return PutItemRequest.builder()
                 .tableName(getTableName())
                 .item(item)
                 .build();
+    }
+
+    private void addNonEmptyList(
+            Map<String, AttributeValue> item,
+            String column,
+            List<Rsvp> rsvps
+    ) {
+        item.put(column, AttributeValue.builder().l(createRsvpAttributeList(rsvps)).build());
+    }
+
+    private void addNonEmptyValue(Map<String, AttributeValue> item, String column, String value) {
+        if (value != null && !value.isEmpty()) {
+            item.put(column, AttributeValue.builder().s(value).build());
+        }
     }
 
     private List<AttributeValue> createRsvpAttributeList(List<Rsvp> rsvps) {
