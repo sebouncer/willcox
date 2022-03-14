@@ -1,14 +1,6 @@
 <html>
 <head>
-    <title>Spedding & Willcox - RSVP</title>
-    <style>
-        .mainTitle {
-            text-align: center;
-            font-size: 100px;
-            font-weight: 600;
-            color: white;
-        }
-    </style>
+    <title>Spedding & Willcox - Details</title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3NCZZTT74J"></script>
@@ -20,100 +12,36 @@
         gtag('config', 'G-3NCZZTT74J');
     </script>
 
+    <style>
+        .mainTitle {
+            text-align: center;
+            font-size: 100px;
+            font-weight: 600;
+            font-family: "Apple Chancery";
+            color: white;
+        }
+    </style>
+
     <script type="text/javascript">
-
-        function showConfirmButton() {
-            document.getElementById("confirmLoader").style.display = "none";
-            document.getElementById("confirmButton").style.display = "inline-block";
-        }
-
-        function showConfirmLoader() {
-            document.getElementById("confirmLoader").style.display = "inline-block";
-            document.getElementById("confirmButton").style.display = "none";
-        }
-
-        function submitAttendees() {
-
-            document.getElementById("serviceResponseSuccess").style.display = "none";
-            document.getElementById("serviceResponseFail").style.display = "none";
-
-            showConfirmLoader();
-
-
-            let vaccinated = document.getElementById("vaccination").checked;
-            let contactEmailAddress = document.getElementById("contactEmailAddress").value;
-            let contactPhoneNumber = document.getElementById("contactPhoneNumber").value;
-
-            let rsvpNumberSelectionElement = document.getElementById("rsvp-number-selection");
-            let rsvpNumberSelectionValue = parseInt(rsvpNumberSelectionElement.value);
-
-            let allRsvpPeople = [];
-
-            for (let i = 0; i < rsvpNumberSelectionValue; i++) {
-                let fullName = document.getElementById("fullName" + (i+1)).value;
-                let areYouComing = document.getElementById("areYouComing" + (i+1));
-                let attending = areYouComing.options[areYouComing.selectedIndex].text;
-
-                let rsvpPerson = {};
-                rsvpPerson.fullName = fullName;
-                rsvpPerson.attending = attending;
-                rsvpPerson.emailAddress = contactEmailAddress;
-                rsvpPerson.phoneNumber = contactPhoneNumber;
-                rsvpPerson.vaccinated = vaccinated;
-                allRsvpPeople.push(rsvpPerson);
-
-                // console.log("fullName = :" + fullName +
-                //     ": coming = :" + attending +
-                //     ": contactEmailAddress = :" + contactEmailAddress +
-                //     ": contactPhoneNumber = :" + contactPhoneNumber +
-                //     ": and is vaccinated = :" + vaccinated + ":");
-            }
-
-            console.log("Send all the data")
-            console.log(JSON.stringify(allRsvpPeople));
-            submitAllAttendees(allRsvpPeople);
-        }
-
-        function submitAllAttendees(allRsvpPeople) {
-            let xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                // console.log("readyState = " + this.readyState + " and status = " + this.status);
-                if (this.readyState == 4 && this.status == 200) {
-                    console.log(this.responseText);
-                    // const responseJson = JSON.parse(this.responseText);
-                    document.getElementById("serviceResponseSuccess").style.display = "block";
-                    document.getElementById("mainTitle").scrollIntoView();
-                    showConfirmButton();
-                } else if (this.readyState == 4 && this.status != 200) {
-                    console.log(this.responseText);
-                    // const responseJson = JSON.parse(this.responseText);
-                    document.getElementById("serviceResponseFail").style.display = "block";
-                    document.getElementById("mainTitle").scrollIntoView();
-                    showConfirmButton();
-                }
-            };
-            xhttp.open("POST", "https://api.willcox.co.nz/reservation/1", true);
-            xhttp.setRequestHeader("apikey", "Engagement");
-            xhttp.setRequestHeader("password", "Spedding");
-            xhttp.setRequestHeader("accept", "*/*");
-            xhttp.setRequestHeader("accept-language", "en-GB,en-US;q=0.9,en;q=0.8");
-
-            xhttp.send(JSON.stringify(allRsvpPeople));
-        }
-
-        function loadRsvpPeople(selectObject) {
-            let value = selectObject.value;
-            let intValue = parseInt(value);
-            loadRsvpPerson(1, intValue);
-            loadRsvpPerson(2, intValue);
-            loadRsvpPerson(3, intValue);
-            loadRsvpPerson(4, intValue);
-            loadRsvpPerson(5, intValue);
-            loadRsvpPerson(6, intValue);
-        }
-
-        function loadRsvpPerson(rsvpPerson, intValue) {
-            document.getElementById("rsvpPerson" + rsvpPerson).style.display = intValue < rsvpPerson? "none" : "table-row";
+        function loadDoc() {
+            // var xhttp = new XMLHttpRequest();
+            // xhttp.onreadystatechange = function() {
+            //     console.log("readyState = " + this.readyState + " and status = " + this.status);
+            //     if (this.readyState == 4 && this.status == 200) {
+            //         console.log(this.responseText);
+            //         const responseJson = JSON.parse(this.responseText);
+            //         document.getElementById("locationValue").innerText = responseJson.location;
+            //         document.getElementById("startTimeValue").innerText = responseJson.startTime;
+            //         document.getElementById("detailsValue").innerText = responseJson.details;
+            //     }
+            // };
+            // xhttp.open("GET", "https://api.willcox.co.nz/reservation/1", true);
+            // xhttp.setRequestHeader("apikey", "Engagement");
+            // xhttp.setRequestHeader("password", "Spedding");
+            // xhttp.setRequestHeader("accept", "*/*");
+            // xhttp.setRequestHeader("accept-language", "en-GB,en-US;q=0.9,en;q=0.8");
+            //
+            // xhttp.send();
         }
     </script>
     <link rel="stylesheet" href="font/stylesheet.css" type="text/css" charset="utf-8" />
@@ -124,9 +52,6 @@
     <link href="styles/style.css" rel="stylesheet">
 
     <style>
-        #rsvpPerson1, #rsvpPerson2, #rsvpPerson3, #rsvpPerson4, #rsvpPerson5, #rsvpPerson6 {
-            display: none;
-        }
         .divTable{
             display: table;
             width: 100%;
@@ -153,11 +78,8 @@
             font-size: 70px;
             color: white;
         }
-        .table-header-value {
-            text-align: left;
-            padding-left: 50px;
-            font-size: 40px;
-            color: white;
+        .details-font {
+            font-size: 50px !important;
         }
         body {
             font-family: 'apple_chancerychancery';
@@ -166,175 +88,28 @@
             font-weight: bold !important;
             font-size: 25px;
         }
-        input[type='checkbox'] {
-            width:50px;
-            height:50px;
-            border-radius:5px;
-            border:2px solid #555;
-        }
-        input[type='checkbox']:checked {
-        }
-    </style>
-
-    <style>
-        .loader {
-            border: 16px solid #f3f3f3; /* Light grey */
-            border-top: 16px solid #3498db; /* Blue */
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            animation: spin 2s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .serviceResponseSuccess {
-            display: none;
-            color: #36b153;
-            font-size: 40px;
-            padding-bottom: 20px;
-        }
-
-        .serviceResponseFail {
-            display: none;
-            color: #c82333;
-            padding-right: 50px;
-            font-size: 40px;
-            padding-bottom: 20px;
-        }
         .normalText {
             font-family: Times New Roman;
             font-size: 40px;
         }
     </style>
 </head>
-<body>
+<body onload="loadDoc()">
 <div class="page">
     <div class="darkBlueBorder">
         <div class="whiteBorder">
             <div class="blueBorder">
                 <div class="whiteBorder">
                     <div class="lightBlueBorder">
-                        <div id="content" class="content">
-                            <div id="mainTitle" class="mainTitle">RSVP</div>
-                            <div id="serviceResponse">
-                                <div id="serviceResponseSuccess" class="detail-title serviceResponseSuccess">Thank you for confirming your attendance<br />If you'd like to get in touch, please contact Andrew & Stephanie at spedding.willcox@gmail.com</div>
-                                <div id="serviceResponseFail" class="detail-title serviceResponseFail">I'm sorry, we're experiencing some technical difficulties at the moment. Please try again later.<br />Or contact Andrew & Stephanie at spedding.willcox@gmail.com</div>
-                            </div>
-                            <div class="detail-title">How many are you RSVP-ing for? <select id="rsvp-number-selection" onchange="loadRsvpPeople(this)">
-                                <option value="0" selected>0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                            </select></div>
-                            <div class="divTable">
-                                <div class="divTableBody">
-                                    <div class="divTableRow">
-                                        <div class="divTableCell table-header-value">Attending?</div>
-                                        <div class="divTableCell table-header-value">Full Name</div>
-                                    </div>
-                                    <div class="divTableRow" id="rsvpPerson1" >
-                                        <div class="divTableCell detail-value">
-                                            <select id="areYouComing1">
-                                                <option value="0" selected></option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-                                            </select>
-                                        </div>
-                                        <div class="divTableCell detail-title">
-                                            <input id="fullName1" placeholder="Name here" /></div>
-                                    </div>
-                                    <div class="divTableRow" id="rsvpPerson2">
-                                        <div class="divTableCell detail-value">
-                                            <select id="areYouComing2">
-                                                <option value="0" selected></option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-                                            </select>
-                                        </div>
-                                        <div class="divTableCell detail-title">
-                                            <input id="fullName2" placeholder="Name here" /></div>
-                                    </div>
-                                    <div class="divTableRow" id="rsvpPerson3">
-                                        <div class="divTableCell detail-value">
-                                            <select id="areYouComing3">
-                                                <option value="0" selected></option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-                                            </select>
-                                        </div>
-                                        <div class="divTableCell detail-title">
-                                            <input id="fullName3" placeholder="Name here" /></div>
-                                    </div>
-                                    <div class="divTableRow" id="rsvpPerson4">
-                                        <div class="divTableCell detail-value">
-                                            <select id="areYouComing4">
-                                                <option value="0" selected></option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-                                            </select>
-                                        </div>
-                                        <div class="divTableCell detail-title">
-                                            <input id="fullName4" placeholder="Name here" /></div>
-                                    </div>
-                                    <div class="divTableRow" id="rsvpPerson5">
-                                        <div class="divTableCell detail-value">
-                                            <select id="areYouComing5">
-                                                <option value="0" selected></option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-                                            </select>
-                                        </div>
-                                        <div class="divTableCell detail-title">
-                                            <input id="fullName5" placeholder="Name here" /></div>
-                                    </div>
-                                    <div class="divTableRow" id="rsvpPerson6">
-                                        <div class="divTableCell detail-value">
-                                            <select id="areYouComing6">
-                                                <option value="0" selected></option>
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-                                            </select>
-                                        </div>
-                                        <div class="divTableCell detail-title">
-                                            <input id="fullName6" placeholder="Name here" /></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br />
-                            <div class="table-header-value normalText">
-                                With the uncertainty of Covid running around, and the Government making changes at any time they like, please also include the best way to contact you in case we need to make any last minute changes.
-                            </div>
-                            <br />
-                            <div class="detail-title">
-                                <input placeholder="Email Address" id="contactEmailAddress" type="email" /></div>
-                            <br />
-                            <div class="detail-title">
-                                <input placeholder="Phone Number" id="contactPhoneNumber" type="number" /></div>
-                            <br />
-                            <div class="detail-title normalText">
-                                <input type="checkbox" id="vaccination" name="vaccination">
-                                Please tick this box to confirm all attendees are fully vaccinated
-                            </div>
-                            <div style="text-align: center;padding-top: 40px">
-                                <button id="confirmButton" type="button" class="navigate-btn btn btn-secondary btn-lg btn-radius" onclick="submitAttendees()">Confirm Response</button>
-                                <div id="confirmLoader" style="display: none;">
-                                    <div class="loader">&nbsp;</div>
-                                </div>
-                            </div>
+                        <div class="content">
+                            <div class="mainTitle">Thank you for joining us for our Engagement Party</div>
                             <div style="text-align: center;padding-top: 40px">
                                 <a href="index.html">
                                     <button type="button" class="navigate-btn btn btn-info btn-radius">Home</button>
                                 </a>
                                 &nbsp;&nbsp;
-                                <a href="details.html">
-                                    <button type="button" class="navigate-btn btn btn-light btn-radius">Details</button>
+                                <a href="rsvp.html">
+                                    <button type="button" class="navigate-btn btn btn-light btn-radius">RSVP</button>
                                 </a>
                             </div>
                         </div>
