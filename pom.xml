@@ -11,6 +11,7 @@
     <modules>
         <module>reservation-lambda</module>
         <module>reservation-frontend</module>
+        <module>reservation-read-from-db</module>
     </modules>
 
 </project>

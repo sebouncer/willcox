@@ -1,0 +1,1043 @@
+{
+    "Item": {
+        "rsvps": {
+            "L": [
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "sebouncer@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "0221904577"
+                        }, 
+                        "fullName": {
+                            "S": "Andrew Willcox"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-16 18:28:17"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "srspedding@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "0274939433"
+                        }, 
+                        "fullName": {
+                            "S": "Sally Spedding"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-16 19:06:46"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "pmwillcox@yahoo.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021808921"
+                        }, 
+                        "fullName": {
+                            "S": "Trish Willcox"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-16 19:22:59"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "pmwillcox@yahoo.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021808921"
+                        }, 
+                        "fullName": {
+                            "S": "Rex Willcox"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-16 19:22:59"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "Warwick1198@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021939433"
+                        }, 
+                        "fullName": {
+                            "S": "Warwick Spedding"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-16 20:00:18"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "kellynicoll@windowslive.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021511154"
+                        }, 
+                        "fullName": {
+                            "S": "Kelly Nicoll"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-16 21:04:16"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "orquejos@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021867964"
+                        }, 
+                        "fullName": {
+                            "S": "Tristan Chan"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-16 21:29:36"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "orquejos@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021867964"
+                        }, 
+                        "fullName": {
+                            "S": "Sheila Orquejo-Chan"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-16 21:29:36"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "orquejos@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021867964"
+                        }, 
+                        "fullName": {
+                            "S": "Tristan Chan"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-16 21:30:19"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "orquejos@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021867964"
+                        }, 
+                        "fullName": {
+                            "S": "Sheila Orquejo-Chan"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-16 21:30:19"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "false"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "thharvey2@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021344317"
+                        }, 
+                        "fullName": {
+                            "S": "Theresa Harvey"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-16 23:07:28"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "false"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "thharvey2@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021344317"
+                        }, 
+                        "fullName": {
+                            "S": "Richard Harvey"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-16 23:07:28"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "thharvey2@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021344317"
+                        }, 
+                        "fullName": {
+                            "S": "Theresa Harvey"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-16 23:07:37"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "thharvey2@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021344317"
+                        }, 
+                        "fullName": {
+                            "S": "Richard Harvey"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-16 23:07:37"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "false"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "lspedding@studygroup.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021930053"
+                        }, 
+                        "fullName": {
+                            "S": "Lindsay Spedding"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-17 07:19:03"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "false"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "lspedding@studygroup.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021930053"
+                        }, 
+                        "fullName": {
+                            "S": "Peter Roband"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-17 07:19:03"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "richie_1009@hotmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "0212288955"
+                        }, 
+                        "fullName": {
+                            "S": "Richard Spedding"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-17 10:58:49"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "richie_1009@hotmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "0212288955"
+                        }, 
+                        "fullName": {
+                            "S": "Melissa Spedding"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-17 10:58:49"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "m.willcox.leong@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021519312"
+                        }, 
+                        "fullName": {
+                            "S": "Michelle Leong"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-17 13:22:02"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "m.willcox.leong@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021519312"
+                        }, 
+                        "fullName": {
+                            "S": "Gabriel Leong"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-17 13:22:02"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "fullName": {
+                            "S": "Natalie Stone"
+                        }, 
+                        "emailAddress": {
+                            "S": "twostonemonkeys@gmail.com"
+                        }, 
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-17 22:25:45"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "fullName": {
+                            "S": "Chris Stone"
+                        }, 
+                        "emailAddress": {
+                            "S": "twostonemonkeys@gmail.com"
+                        }, 
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-17 22:25:45"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "thefastnedges@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "02102500724"
+                        }, 
+                        "fullName": {
+                            "S": "Daniel Fastnedge"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-20 07:12:31"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "thefastnedges@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "02102500724"
+                        }, 
+                        "fullName": {
+                            "S": "Tessa Fastnedge"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-20 07:12:31"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "jenispedding@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021405909"
+                        }, 
+                        "fullName": {
+                            "S": "Josh Penny"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-20 20:59:32"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "jenispedding@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021405909"
+                        }, 
+                        "fullName": {
+                            "S": "Jennifer Spedding"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-20 20:59:32"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "duffclan@orcon.net.nz"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021739422"
+                        }, 
+                        "fullName": {
+                            "S": "Jo Duffin"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-22 16:38:16"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "duffclan@orcon.net.nz"
+                        }, 
+                        "phoneNumber": {
+                            "S": "021739422"
+                        }, 
+                        "fullName": {
+                            "S": "Keith Duffin"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-22 16:38:16"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "fullName": {
+                            "S": "Rachel Spedding "
+                        }, 
+                        "phoneNumber": {
+                            "S": "021524596"
+                        }, 
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-22 18:21:07"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "fullName": {
+                            "S": "Thomas O’Brien "
+                        }, 
+                        "phoneNumber": {
+                            "S": "021524596"
+                        }, 
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-22 18:21:07"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "fullName": {
+                            "S": "Max O’Brien "
+                        }, 
+                        "phoneNumber": {
+                            "S": "021524596"
+                        }, 
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-22 18:21:07"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "fullName": {
+                            "S": "Ella O’Brien "
+                        }, 
+                        "phoneNumber": {
+                            "S": "021524596"
+                        }, 
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-22 18:21:07"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "attending": {
+                            "S": "No"
+                        }, 
+                        "fullName": {
+                            "S": "Andrew Duff"
+                        }, 
+                        "emailAddress": {
+                            "S": "gemmaduff25@yahoo.co.nz"
+                        }, 
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-26 20:59:33"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "attending": {
+                            "S": "No"
+                        }, 
+                        "fullName": {
+                            "S": "Gemma Duff"
+                        }, 
+                        "emailAddress": {
+                            "S": "gemmaduff25@yahoo.co.nz"
+                        }, 
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-26 20:59:33"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "james.lauren.rose@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "0211109748"
+                        }, 
+                        "fullName": {
+                            "S": "James Rose"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-28 19:54:03"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "james.lauren.rose@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "0211109748"
+                        }, 
+                        "fullName": {
+                            "S": "Lauren Rose"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-28 19:54:03"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "sopropertynz@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "0273240269"
+                        }, 
+                        "fullName": {
+                            "S": "Shanon Garside"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-30 16:56:22"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "sopropertynz@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "0273240269"
+                        }, 
+                        "fullName": {
+                            "S": "Oli Garside "
+                        }, 
+                        "createdAt": {
+                            "S": "2022-01-30 16:56:22"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "catherine.rochford@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "0272442927"
+                        }, 
+                        "fullName": {
+                            "S": "Joe Rochford"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-02-02 15:17:20"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "catherine.rochford@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "0272442927"
+                        }, 
+                        "fullName": {
+                            "S": "Catherine Rochford"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-02-02 15:17:20"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "fullName": {
+                            "S": "Kerryn Nicholls"
+                        }, 
+                        "emailAddress": {
+                            "S": "kerryn.nicholls@gmail.com"
+                        }, 
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-02-09 13:02:07"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "fullName": {
+                            "S": "Kerryn Nicholls"
+                        }, 
+                        "emailAddress": {
+                            "S": "kerryn.nicholls@gmail.com"
+                        }, 
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-02-09 14:39:42"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "No"
+                        }, 
+                        "emailAddress": {
+                            "S": "andrew.james.ford79@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "0226924680"
+                        }, 
+                        "fullName": {
+                            "S": "Andy Ford"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-02-09 17:49:27"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "No"
+                        }, 
+                        "emailAddress": {
+                            "S": "andrew.james.ford79@gmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "0226924680"
+                        }, 
+                        "fullName": {
+                            "S": "Deb Jones"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-02-09 17:49:27"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "fullName": {
+                            "S": "Greer"
+                        }, 
+                        "phoneNumber": {
+                            "S": "272002226"
+                        }, 
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-02-09 22:54:22"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "fullName": {
+                            "S": "Melanie tong"
+                        }, 
+                        "phoneNumber": {
+                            "S": "0211505712"
+                        }, 
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-02-10 06:04:36"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "naca@lewavesi.net"
+                        }, 
+                        "phoneNumber": {
+                            "S": "0211427155"
+                        }, 
+                        "fullName": {
+                            "S": "Naca Nabunobuno"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-02-10 08:10:15"
+                        }
+                    }
+                }, 
+                {
+                    "M": {
+                        "vaccinated": {
+                            "S": "true"
+                        }, 
+                        "attending": {
+                            "S": "Yes"
+                        }, 
+                        "emailAddress": {
+                            "S": "Marionhammond@hotmail.com"
+                        }, 
+                        "phoneNumber": {
+                            "S": "02102657414"
+                        }, 
+                        "fullName": {
+                            "S": "Marion Hammond"
+                        }, 
+                        "createdAt": {
+                            "S": "2022-02-17 21:11:28"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "location": {
+            "S": "Our House"
+        }, 
+        "startTime": {
+            "S": "6:30pm"
+        }, 
+        "endTime": {
+            "S": "Till Late"
+        }, 
+        "id": {
+            "S": "1"
+        }, 
+        "details": {
+            "S": "Come and join us not for a good time, for a great time. Be free with your blue shirt"
+        }
+    }
+}
