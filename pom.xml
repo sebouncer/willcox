@@ -12,6 +12,7 @@
         <module>reservation-lambda</module>
         <module>reservation-frontend</module>
         <module>reservation-read-from-db</module>
+        <module>photo-scale</module>
     </modules>
 
 </project>
